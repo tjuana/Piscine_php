@@ -1,0 +1,19 @@
+h1{text-align: center;font-family: fantasy;font-style: italic;font-size: 1vw;}
+body{background:lightgray;background-image: linear-gradient(red, yellow, blue)}
+.td td{font-family:fantasy, sans-serif;font-size:1vw;padding:0px 0px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.td {border-collapse: collapse;border-spacing: 0;margin:0px auto}
+.td .td-nm{background:lightgreen;color: black;border-color: black;text-align: left}
+.td .td-ls{background:lightcyan;color: black;border-color: black;text-align: left}
+.td .td-as{background:green;color: black;border-color: black;text-align: left}
+.td .td-bm{background:mediumslateblue;color: black;border-color: black;text-align: left}
+.td .td-hl{background:cyan;color: black;border-color: black;text-align: left}
+.td .td-ng{background:lightskyblue;color: black;border-color: black;text-align: left}
+.td .td-am{background:lightblue;color: black;border-color: black;text-align: left}
+.td .td-ae{background:pink;color: black;border-color: black;text-align: left}
+.td .td-tm{background:yellow;color: black;border-color: black;text-align: left}
+.td .td-sm{background:greenyellow;color: black;border-color: black;text-align: left}
+.td .top{font-size: 1vw;border: transparent;text-align: right;width: 70px;}
+.td .mid{font-size: 2vw;border: transparent;text-align: center;width: 70px;font-weight: bold;}
+.td .bot{font-size: 1vw;border: transparent;text-align:left;width: 70px;}
+.td .td-empty{font-size: 1vw;border: tomato}
+.center{display: block;margin-left: auto;margin-right: auto;width: 30%}

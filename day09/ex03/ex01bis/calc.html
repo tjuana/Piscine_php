@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body {
+        background: rgb(133, 0, 177);
+    }
+    input {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			background: purple;
+			border: solid 2px rgb(161, 55, 55);
+			border-radius: 10px;
+			height: 35px;
+			width: 200px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+	input:hover {
+		    border: solid 2px rgb(255, 126, 74);
+		    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.25);
+	}
+    select {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			background: purple;
+			border: solid 2px rgb(161, 55, 55);
+			border-radius: 10px;
+			height: 35px;
+			width: 100px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+    </style>
+	<title>calc.html</title> 
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+		<input type="text" id="nb1" /><br /><br />
+		<select id="ope">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select><br /><br />
+		<input type="text" id="nb2" /><br /><br />
+		<input type="submit" onclick="try_me()" value="Try me!" id="ok">
+	
+		<script>
+			setInterval(function () {
+				alert("Please, use me...");
+			}, 30000); // = 30 seconds in milliseconds
+	
+			function try_me() {
+				var nb1 = $('#nb1');
+				var ope = $('#ope');
+				var nb2 = $('#nb2');
+	
+				var nbr1 = parseInt(nb1.val());
+				var nbr2 = parseInt(nb2.val());
+	
+				console.log(nb1.val());
+	
+				if (isNaN(nbr1) || isNaN(nbr2) || nbr1 < 0 || nbr2 < 0) {
+					alert("Error :(");
+				} else {
+					var calc;
+					switch (ope.val()) {
+						case "+": {
+							calc = nbr1 + nbr2;
+							break;
+						}
+						case "-": {
+							calc = nbr1 - nbr2;
+							break;
+						}
+						case "*": {
+							calc = nbr1 * nbr2;
+							break;
+						}
+						case "/": {
+							if (nbr2 === 0) {
+								alert("It's over 9000!");
+								return;
+							}
+							calc = nbr1 / nbr2;
+							break;
+						}
+						case "%": {
+							if (nbr2 === 0) {
+								alert("It's over 9000!");
+								return;
+							}
+							calc = nbr1 % nbr2;
+							break;
+						}
+					}
+					alert(calc);
+					console.log(calc);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    body {
+        background: rgb(133, 0, 177);
+    }
+	form {
+		position: absolute;
+		top: 200px;
+		left: 50%;
+		transform: translate(-50%);
+	}
+
+    input {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			background: purple;
+			border: solid 2px rgb(161, 55, 55);
+			border-radius: 10px;
+			height: 35px;
+			width: 200px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+	input:hover {
+		    border: solid 2px rgb(255, 126, 74);
+		    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.25);
+	}
+    select {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			background: purple;
+			border: solid 2px rgb(161, 55, 55);
+			border-radius: 10px;
+			height: 35px;
+			width: 100px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+
+    button {
+    background: red;
+		border: solid 2px rgb(37, 37, 37);
+		border-radius: 5px;
+		height: 40px;
+		width: 100px;
+		color: whitesmoke;
+    }
+    </style>
+    <title>calc.html</title> 
+</head>
+<body>
+    <form id="calc">
+    <input type="text" name="left"><br><br>
+    <select name="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="%">%</option>
+        <option value="/">/</option><br><br>
+    </select><br><br>
+    <input type="text" name="right"><br><br>
+    <input class="button" type="submit" value="Try me !" id="OK">
+    </form>
+    <script>
+        setInterval(() => alert("Please, use me..."), 30 * 1000);
+		function log(message) {
+			alert(message);
+			console.log(message);
+		}
+        var calc = document.getElementById("calc");
+        
+        calc.addEventListener('submit', function(event) {
+            event.preventDefault()
+            var left = parseInt(event.target.querySelector('input[name=left]').value)
+		    var op = event.target.querySelector('select[name=op]').value
+		    var right = parseInt(event.target.querySelector('input[name=right]').value);
+        
+		if (isNaN(left) || isNaN(right)) {
+			return log('Error :(')
+		}
+		if (left < 0 || right < 0) {
+			return log('Error :(')
+		}
+        
+        switch (op) {
+				case '+':
+					log(left + right);
+					break;
+				case '-':
+					log(left - right);
+					break;
+				case '*':
+					log(left * right);
+					break;
+				case '/':
+					if (right === 0)
+						return log("It's over 9000!")
+					log(left / right);
+					break;
+				case '%':
+					if (right === 0)
+						return log("It's over 9000!")
+					log(left % right);
+					break;
+			}
+		})
+    </script>
+</body>
+</html>

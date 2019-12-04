@@ -1,0 +1,67 @@
+<head>
+        <meta charset="utf-8" />
+        <title>Balloon</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            #balloon {
+                position: absolute;
+                top: 400px;
+                left: 50%;
+                width: 200px;
+                height: 200px;
+                transform: translate(-50%, -50%);
+                border-radius: 100%;
+                background-color: red;
+                border: solid 1px white;
+                box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.15);
+            }
+            #balloon:hover {
+                box-shadow: 0px 24px 48px 0px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            
+            var actual = 0;
+            var colors = ["red", "green", "blue"];
+    
+            function up_ballon() {
+                var ball = $("#balloon");
+                
+                ball.width(ball.width() + 10);
+                ball.height(ball.height() + 10);
+    
+                if (ball.width > 420 || ball.height() > 420) {
+                    ball.width(200);
+                    ball.height(200);
+                }
+                actual += 1;
+                if (actual > 2)
+                    actual = 0;
+                ball.css('background-color', colors[actual]);
+            }
+
+            function down_ballon() {
+                var ball = $("#balloon");
+                
+                ball.width(ball.width() - 5);
+                ball.height(ball.height() - 5);
+    
+                if (ball.width < 200 || ball.height() < 200) {
+                    ball.width(200);
+                    ball.height(200);
+                }
+                actual -= 1;
+                if (actual < 0)
+                    actual = 2;
+                ball.css('background-color', colors[actual]);
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="balloon" onclick="up_ballon()" onmouseout="down_ballon()">
+        </div>
+    </body>  
+    
+    </html>
